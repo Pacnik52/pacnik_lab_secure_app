@@ -26,3 +26,5 @@ jobs:
           -e MIXEWAY_PROJECT_NAME=pacnik_lab_secure_app \
           -v /opt/lab_sec_audit/sast:/opt/sources \
           mixeway/scanner:latest
+          
+          # comment
