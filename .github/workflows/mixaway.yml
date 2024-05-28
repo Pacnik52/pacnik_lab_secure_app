@@ -1,5 +1,5 @@
 name: Perform Mixeway Scan
-on: push
+
 jobs:
   mixeway-scan:
     name: Mixeway Scanning
@@ -17,4 +17,12 @@ jobs:
           docker pull mixeway/scanner:latest
       - name: Run Scan
         run: |
-          docker run -e OSS_USERNAME=maja.pachnik@gmail.com -e OSS_KEY=nAUXalJ4gS7v4PPv9ZxnYZVgMND7vjn69IbhkI5R7Ww -e MIXEWAY_URL=https://hub.mixeway.io -e MIXEWAY_KEY=464c639c-9d1f-44d1-9fc4-e00feaace20f -e MIXEWAY_PROJECT_ID=161 -e MODE=STANDALONE -e MIXEWAY_PROJECT_NAME=pacnik_lab_secure_app -e COMMIT_ID=test -e BRANCH=master -v /opt/lab_sec_audit/sast:/opt/sources mixeway/scanner:latest
+          docker run \
+          -e OSS_USERNAME=maja.pachnik@gmail.com \
+          -e OSS_KEY=nAUXalJ4gS7v4PPv9ZxnYZVgMND7vjn69IbhkI5R7Ww \
+          -e MIXEWAY_URL=https://hub.mixeway.io \
+          -e MIXEWAY_KEY=464c639c-9d1f-44d1-9fc4-e00feaace20f \
+          -e MIXEWAY_PROJECT_ID=161 \
+          -e MIXEWAY_PROJECT_NAME=pacnik_lab_secure_app \
+          -v /opt/lab_sec_audit/sast:/opt/sources \
+          mixeway/scanner:latest
